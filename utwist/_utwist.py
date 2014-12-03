@@ -146,7 +146,7 @@ def _twisted_test_sync(callee, call_args, call_kwargs, timeout=120):
         failure = retval.failure
         
         if failure.type == TypeError:
-            raise failure.type, [failure.getTraceback()], None
+            raise failure.type, failure.getTraceback(), None
         elif failure.type == DirtyReactorAggregateError:
             # I really don't understand this yet. failure.getTraceback() returns
             # a string, but somehow a "\n".join(..) is done on it, leading to
