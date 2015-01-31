@@ -26,7 +26,7 @@ with open('README.rst') as f:
 
 setup(
     name = 'utwist',
-    version = '0.1.0',
+    version = '0.1.1',
     description='Running twisted\'s reactor inside regular unit-tests without trial',
     long_description=long_description,
     author='Stefan C. Mueller',
