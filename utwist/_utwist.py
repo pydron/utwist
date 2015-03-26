@@ -303,7 +303,7 @@ def _ensure_reactor_running():
         
         
         # start the reactor in a daemon-thread
-        reactor_thread = threading.Thread(target=reactor.run)
+        reactor_thread = threading.Thread(target=reactor.run, name="reactor")
         reactor_thread.daemon = True
         reactor_thread.start()
         while not reactor.running:
