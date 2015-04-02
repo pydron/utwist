@@ -145,22 +145,8 @@ def _twisted_test_sync(callee, call_args, call_kwargs, timeout=120):
         # the value with the string representation provided by `failure`.
         failure = retval.failure
         
-        if failure.type == TypeError:
-            raise failure.type, failure.getTraceback(), None
-        elif failure.type == DirtyReactorAggregateError:
-            # I really don't understand this yet. failure.getTraceback() returns
-            # a string, but somehow a "\n".join(..) is done on it, leading to
-            # one charater per line. Does only seem to happen with this specific
-            # failure type.
-            raise failure.type, [failure.getTraceback()], None
-        else:
-            try:
-                # Sometimes this fails with a TypeError. Probably has problems
-                # creating the exception instance.
-                raise failure.type, failure.getTraceback(), None
-            except TypeError:
-                failure.raiseException()
-
+        failure.printTraceback(file=sys.stderr)
+        failure.raiseException()
             
     else:
         return retval
