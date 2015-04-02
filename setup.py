@@ -18,15 +18,18 @@
 # FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
 # IN THE SOFTWARE.
 
-
 from setuptools import setup, find_packages
+import os.path
 
-with open('README.rst') as f:
-    long_description = f.read()
+if os.path.exists('README.rst'):
+    with open('README.rst') as f:
+        long_description = f.read()
+else:
+    long_description = ""
 
 setup(
     name = 'utwist',
-    version = '0.1.1',
+    version = '0.1.2',
     description='Running twisted\'s reactor inside regular unit-tests without trial',
     long_description=long_description,
     author='Stefan C. Mueller',
