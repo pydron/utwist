@@ -29,7 +29,7 @@ else:
 
 setup(
     name = 'utwist',
-    version = '0.1.2',
+    version = '0.1.3',
     description='Running twisted\'s reactor inside regular unit-tests without trial',
     long_description=long_description,
     author='Stefan C. Mueller',
